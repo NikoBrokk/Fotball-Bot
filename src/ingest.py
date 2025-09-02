@@ -12,3 +12,12 @@ def extract_text_from_pdf(pdf_path: Path) -> str:  # lager kun hele string-tekst
 
 def has_useful_text(text: str, min_len: int = 30) -> bool:  # test om teksten faktisk har noe innhold
     return len(text) >= min_len
+
+if __name__ == "__main__":
+    from pathlib import Path
+    sample_dir = Path("data/sample_invoices")
+    pdfs = list(sample_dir.glob("*.pdf"))
+    print(f"Fant {len(pdfs)} PDFer i {sample_dir}")
+    for f in pdfs:
+        text = extract_text_from_pdf(f)
+        print(f"{f.name}: {len(text)} tegn, useful={has_useful_text(text)}")
