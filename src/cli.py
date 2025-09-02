@@ -1,6 +1,6 @@
-import typer  # kommandolinjer
-from pathlib import Path  # filstier
-from rich import print  # visuell tekst (farger/format)
+import typer  
+from pathlib import Path  
+from rich import print 
 
 app = typer.Typer()  # lag en app for kommandolinjer
 
@@ -13,3 +13,4 @@ def parse_invoices(dir: Path, out: Path = Path("data/out/out.csv")):
 
 if __name__ == "__main__":  # sjekker om filen kjøres direkte
     app()  # starter CLI-app'en (typer håndterer argumenter/kommandoer)
+
